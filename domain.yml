@@ -1,0 +1,73 @@
+version: "2.0"
+
+intents:
+  - greet
+  - inform_error_lost_data
+  - inform_account_id
+  - affirm
+  - deny
+  - goodbye
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - error_lost_data
+
+actions:
+  - utter_greet
+  - utter_sorry
+  - utter_demand_account_id
+  - utter_affirm_account_id
+  - utter_information_received
+  - utter_thank
+
+entities:
+  - account_number
+
+slots:
+  account_number:
+    type: text
+
+responses:
+  utter_greet:
+  - text: "I'm Falcon'Aio, the virtual assistant. Falcon'Aio can provide quick assistance with the requests below. You can also make short requests such as 'error reporting', 'data loss', ... I will support immediately."
+
+  utter_sorry:
+  - text: "We apologize to you for the inconvenience you are experiencing during our game play."
+
+  utter_demand_account_id:
+  - text: "Could you please send me your game ID?"
+
+  utter_affirm_account_id:
+  - text: "{account_number} right?"
+
+  utter_information_received:
+  - text: "We have received information of account {account_number}. We will get back to you as soon as possible, don't worry"
+
+  utter_thank:
+    - text: "Thank you"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_demand_service_rate:
+  - text: "Please rate the satisfaction level with our customer care service on a scale of 1⭐ (Not satisfied) - 5⭐ (Very satisfied):"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I'm Falcon'Aio, the virtual assistant powered by Falcon Game Studio."
+
+  utter_thankyou:
+  - text: "Thank for providing game id"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

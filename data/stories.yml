@@ -1,0 +1,52 @@
+version: "2.0"
+
+stories:
+
+- story: inform error - lost data - path 01
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_error_lost_data
+  - action: utter_sorry
+  - action: utter_demand_account_id
+  - intent: inform_account_id
+    entities:
+      - account_number : "AB-123"
+  - action: utter_information_received
+
+- story: inform error - lost data - path 02
+  steps:
+  - intent: inform_error_lost_data
+  - action: utter_sorry
+  - action: utter_demand_account_id
+  - intent: inform_account_id
+    entities:
+      - account_number : "AB-123"
+  - action: utter_information_received
+
+- story: lost data - path 02
+  steps:
+  - intent: inform_account_id
+  - action: utter_affirm_account_id
+  - intent: affirm
+  - action: utter_information_received
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
